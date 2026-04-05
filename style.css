@@ -22,9 +22,47 @@ a {
 
 /* ----- Animations ----- */
 @keyframes fadein-up{
-    from    { opacity: 0; transform: translateY(28px); }
-    to      { opacity: 1; transform: translateY(0); }
+  from    { opacity: 0; transform: translateY(28px); }
+  to      { opacity: 1; transform: translateY(0); }
 }
+
+@keyframes fall {
+  0%   { opacity: 0; transform: translateY(0) rotate(0deg); }
+  10%  { opacity: 0.8; }
+  90%  { opacity: 0.3; }
+  100% { opacity: 0; transform: translateY(110vh) rotate(720deg); }
+}
+
+@keyframes section-flash {
+  0%   { background: rgba(114, 45, 68, 0.5); }
+  100% { background: transparent; }
+}
+
+.petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -30px;
+  background: radial-gradient(ellipse at 30% 30%, #ffb7c5, #e8749a);
+  border-radius: 70% 30% 70% 30% / 30% 70% 30% 70%;
+  opacity: 0;
+  animation: fall linear infinite;
+}
+
+.p1 { left:  8%; width: 10px; height: 10px; animation-duration: 12s; animation-delay:  0s; }
+.p2 { left: 18%; width: 14px; height: 12px; animation-duration: 15s; animation-delay:  3s; }
+.p3 { left: 30%; width: 10px; height: 14px; animation-duration: 11s; animation-delay:  6s; }
+.p4 { left: 45%; width:  8px; height:  8px; animation-duration: 18s; animation-delay:  1s; }
+.p5 { left: 58%; width: 14px; height: 10px; animation-duration: 13s; animation-delay:  9s; }
+.p6 { left: 68%; width: 12px; height: 14px; animation-duration: 16s; animation-delay:  4s; }
+.p7 { left: 80%; width: 10px; height: 12px; animation-duration: 14s; animation-delay:  7s; }
+.p8 { left: 90%; width: 16px; height: 12px; animation-duration: 20s; animation-delay:  2s; }
 
 /* ----- Navbar ----- */
 .navbar{
@@ -71,11 +109,6 @@ a {
 
 .anggota:target {
   animation: section-flash 0.8s ease;
-}
-
-@keyframes section-flash {
-  0%   { background: rgba(255, 0, 85, 0.6); }
-  100% { background: transparent; }
 }
 
 .anggota h2 {
@@ -201,22 +234,22 @@ a {
 .card-wrap:nth-child(1) .front {
   background-image:
     radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
-    linear-gradient(145deg, #0b1a40 0%, #0e2860 100%);
+    linear-gradient(145deg, #0b1a40 0%, #112e6c 100%);
 }
 .card-wrap:nth-child(2) .front {
   background-image:
     radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
-    linear-gradient(145deg, #0a2018 0%, #0d3022 100%);
+    linear-gradient(145deg, #0a2018 0%, #134531 100%);
 }
 .card-wrap:nth-child(3) .front {
   background-image:
     radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
-    linear-gradient(145deg, #220c0c 0%, #321212 100%);
+    linear-gradient(145deg, #220c0c 0%, #4d1b1b 100%);
 }
 .card-wrap:nth-child(4) .front {
   background-image:
     radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
-    linear-gradient(145deg, #150c28 0%, #1e1240 100%);
+    linear-gradient(145deg, #150c28 0%, #281854 100%);
 }
 
 .avatar {
@@ -224,7 +257,7 @@ a {
   height: 110px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid rgba(232, 116, 154, 0.4);
+  border: 2px solid rgba(237, 81, 133, 0.25);
   margin-bottom: 4px;
   transition: transform 0.35s ease, border-color 0.35s ease;
 }
@@ -237,7 +270,7 @@ a {
 
 .card:hover .avatar {
   transform: scale(1.07);
-  border-color: rgba(232, 116, 154, 0.7);
+  border-color: rgba(237, 81, 133, 0.8);
 }
 
 .front h3, .back h3 {
@@ -274,22 +307,22 @@ a {
 .card-wrap:nth-child(1) .back {
   background-image:
     radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
-    linear-gradient(145deg, #081428 0%, #0b1c48 100%);
+    linear-gradient(145deg, #081428 0%, #001448 100%);
 }
 .card-wrap:nth-child(2) .back {
   background-image:
     radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
-    linear-gradient(145deg, #081a10 0%, #0a2618 100%);
+    linear-gradient(145deg, #081a10 0%, #00331a 100%);
 }
 .card-wrap:nth-child(3) .back {
   background-image:
     radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
-    linear-gradient(145deg, #1a0808 0%, #280e0e 100%);
+    linear-gradient(145deg, #1a0808 0%, #3a0000 100%);
 }
 .card-wrap:nth-child(4) .back {
   background-image:
     radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
-    linear-gradient(145deg, #0e0820 0%, #170e34 100%);
+    linear-gradient(145deg, #0e0820 0%, #0f0040 100%);
 }
 
 .back p {
@@ -317,7 +350,7 @@ a {
 }
 
 .hero{
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -325,13 +358,14 @@ a {
   text-align: center;
 
   padding: 0 20px;
-  margin-top: 60px;
   background: radial-gradient(circle at top, #0f1b3d, #080c18);
 }
+
 .hero h1 {
   font-size: clamp(32px, 5vw, 48px);
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  line-height: 1.2;
 
   opacity: 0;
   animation: fadein-up 0.7s ease forwards;
@@ -348,16 +382,14 @@ a {
   animation: fadein-up 0.7s ease forwards 0.2s;
 }
 
-.hero .btn {
-  display: inline-block;
+.hero .btn {  
   padding: 10px 22px;
-  border-radius: 999px;
+  border-radius: 100px;
   font-size: 14px;
   font-weight: 600;
 
   background: linear-gradient(135deg, #e8749a, #f4a0bc);
   color: #080c18;
-
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 
   opacity: 0;
@@ -366,5 +398,24 @@ a {
 
 .hero .btn:hover {
   transform: translateY(-2px);
+  transform: scale(1.05);
   box-shadow: 0 8px 24px rgba(232, 116, 154, 0.35);
+  color: #fff;
+}
+
+footer {
+  text-align: center;
+  padding: 36px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 13px;
+  color: #5a6e88;
+  line-height: 2;
+}
+
+@media (max-width: 600px) {
+  .navbar  { padding: 14px 20px; }
+  .anggota { padding: 60px 20px; }
+  .hero    { padding: 100px 20px 60px; }
+  .grid    { grid-template-columns: 1fr; }
+  .card    { height: 360px; }
 }
